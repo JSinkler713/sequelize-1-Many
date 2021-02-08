@@ -7,3 +7,14 @@
       <% } %>
     </ul>
 </div>
+<form action='/users/<%= user.id %>/addPet' method='POST'>
+    <div class="mb-3">
+      <label for="name" class="form-label">Pet name</label>
+      <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name='name'>
+      <div class="form-text">We'll never share your dog with anyone else.</div>
+    </div>
+    <div class="mb-3">
+        <label for="species" class="form-s">Species</label>
+        <input type="text" class="form-control" id="species" aria-describedby="emailHelp" name='species'>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
