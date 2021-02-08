@@ -1,0 +1,10 @@
+<h1 class='text-center'>Users</h1>
+<ul class="list-group">
+<% allUsers.forEach( user => { %>
+  <li class="list-group-item">
+      <a href='/users/<%= user.id %>'>
+        <%= user.firstName %> <%= user.lastName %>
+      </a>
+  </li>
+<% }) %>
+</ul>

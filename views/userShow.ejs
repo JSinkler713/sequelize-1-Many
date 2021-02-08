@@ -1,0 +1,9 @@
+
+<h1 class='text-lg-center'><%= user.firstName %>'s pets</h1>
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+      <% for (let i=0; i< user.pets.length; i++) { %>
+        <li class="list-group-item"><%= user.pets[i].name %></li>
+      <% } %>
+    </ul>
+</div>

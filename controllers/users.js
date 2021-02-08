@@ -5,9 +5,34 @@ const router = express.Router()
 const db = require('../models')
 
 //control our routes
+
+// this path is really localhost:8000/users/
 router.get('/', (req, res)=> {
-  // do what we need
-  res.send('hey this is my users controller')
+  // get all users
+  db.user.findAll()
+  .then( allUsers=> {
+    res.render('allUsers', { allUsers })
+  })
+
+})
+
+// this will be a user show page
+router.get('/:id', (req, res)=> {
+  // this will be a show page for a user
+  db.user.findOne({ 
+    where: {
+      id: req.params.id
+    },
+    include: [db.pet]
+  })
+  .then( user=> {
+    // we will get back a pets property
+    console.log(user.pets)
+    // we will show all the animals
+    res.render('userShow', { user })
+  })
+  // we will a have a form to make a new animal
+
 })
 
 // export the router to have access to it
